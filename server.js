@@ -3,7 +3,9 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors({ origin: "https://atomicbot.ai" }));
+app.use(cors({
+  origin: ["https://atomicbot.ai", "https://atomicbot-ai.webflow.io"],
+}));
 app.use(express.json());
 
 app.post("/signup", async (req, res) => {
