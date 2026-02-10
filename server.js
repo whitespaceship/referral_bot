@@ -64,17 +64,25 @@ app.post("/signup", async (req, res) => {
       }
     }
 
-    // Send welcome email with referral link
+    // Send welcome email with referral link via Resend REST API
     try {
-      const emailResult = await resend.emails.send({
-        from: "Atomic Bot <welcome@atomicbot.ai>",
-        to: email,
-        subject: "✅ +1 Atomic Bot! You're on the early access list.",
-        template: {
-          id: "accesscode",
-          variables: { referral_url: referralUrl },
+      const emailRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.RESEND_API_KEY,
         },
+        body: JSON.stringify({
+          from: "Atomic Bot <welcome@atomicbot.ai>",
+          to: email,
+          subject: "✅ +1 Atomic Bot! You're on the early access list.",
+          template: {
+            id: "accesscode",
+            variables: { referral_url: referralUrl },
+          },
+        }),
       });
+      const emailResult = await emailRes.json();
       console.log("Email sent:", emailResult);
     } catch (emailErr) {
       console.error("Resend email error:", emailErr);
