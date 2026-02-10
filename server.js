@@ -66,17 +66,18 @@ app.post("/signup", async (req, res) => {
 
     // Send welcome email with referral link
     try {
-      await resend.emails.send({
+      const emailResult = await resend.emails.send({
         from: "Atomic Bot <welcome@atomicbot.ai>",
         to: email,
         subject: "✅ +1 Atomic Bot! You're on the early access list.",
-        react: undefined,
-        html: undefined,
-        templateId: "accesscode",
-        data: { referral_url: referralUrl },
+        template: {
+          id: "accesscode",
+          variables: { referral_url: referralUrl },
+        },
       });
+      console.log("Email sent:", emailResult);
     } catch (emailErr) {
-      console.error("Resend email error:", emailErr.message);
+      console.error("Resend email error:", emailErr);
     }
 
     res.json({
