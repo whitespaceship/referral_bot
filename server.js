@@ -95,12 +95,12 @@ function buildEmailHtml(referralUrl, unsubscribeUrl) {
                                   <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;border-radius:12px;background-color:#F9FAFB;border:1px solid #E5E7EB" role="presentation">
                                     <tr>
                                       <td align="center" class="es-text-5729" style="padding:0;Margin:0;padding-right:20px;padding-left:20px;padding-top:24px">
-                                        <h2 class="es-m-txt-c es-text-mobile-size-20" style="Margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;mso-line-height-rule:exactly;letter-spacing:0.05em;font-size:14px;font-style:normal;font-weight:600;line-height:20px;color:#6B7280;text-transform:uppercase">Your invite link</h2>
+                                        <h2 class="es-m-txt-c es-text-mobile-size-20" style="Margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;mso-line-height-rule:exactly;letter-spacing:0.05em;font-size:14px;font-style:normal;font-weight:600;line-height:20px;color:#6B7280;text-transform:uppercase">Copy your invite link</h2>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td align="center" class="es-text-2405" style="Margin:0;padding-right:20px;padding-left:20px;padding-top:12px;padding-bottom:24px">
-                                        <h1 class="es-m-txt-c es-text-mobile-size-24" style="Margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;mso-line-height-rule:exactly;letter-spacing:0;font-size:20px;font-style:normal;font-weight:500;line-height:1.2;color:#4F46E5;background-color:#EEF2FF;display:inline-block;padding:8px 16px;border-radius:6px">${referralUrl}</h1>
+                                        <p class="es-m-txt-c es-text-mobile-size-24" style="Margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;mso-line-height-rule:exactly;letter-spacing:0;font-size:20px;font-style:normal;font-weight:500;line-height:1.2;color:#4F46E5;background-color:#EEF2FF;display:inline-block;padding:8px 16px;border-radius:6px;text-decoration:none">${referralUrl}</p>
                                       </td>
                                     </tr>
                                   </table>
