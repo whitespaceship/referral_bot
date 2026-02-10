@@ -1,5 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
 
 const app = express();
 
@@ -44,6 +48,36 @@ app.post("/signup", async (req, res) => {
     );
 
     const data = await response.json();
+
+    const referralUrl = "https://atomicbot.ai?kid=" + data.social_id;
+
+    // Add contact to Resend audience
+    if (AUDIENCE_ID) {
+      try {
+        await resend.contacts.create({
+          email,
+          unsubscribed: false,
+          audienceId: AUDIENCE_ID,
+        });
+      } catch (contactErr) {
+        console.error("Resend contact error:", contactErr.message);
+      }
+    }
+
+    // Send welcome email with referral link
+    try {
+      await resend.emails.send({
+        from: "Atomic Bot <welcome@atomicbot.ai>",
+        to: email,
+        subject: "✅ +1 Atomic Bot! You're on the early access list.",
+        react: undefined,
+        html: undefined,
+        templateId: "accesscode",
+        data: { referral_url: referralUrl },
+      });
+    } catch (emailErr) {
+      console.error("Resend email error:", emailErr.message);
+    }
 
     res.json({
       code: data.social_id,
