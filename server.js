@@ -238,7 +238,7 @@ function buildEmailHtml(referralUrl, unsubscribeUrl) {
                                   <td align="center" style="padding:0;Margin:0;padding-bottom:30px">
                                     <span class="es-button-border"
                                       style="border-style:solid;border-color:#111827;background:#111827;border-width:0px;display:inline-block;border-radius:100px;width:auto">
-                                      <a href="https://github.com/AtomicBot-ai/atomicbot/releases/download/v0.0.40/Atomic.Bot-0.0.40-arm64.dmg"
+                                      <a href="https://github.com/AtomicBot-ai/atomicbot/releases/download/v1.0.1/Atomic.Bot-1.0.1-arm64.dmg"
                                         class="es-button" target="_blank"
                                         style="mso-style-priority:100 !important;text-decoration:none;font-family:'Inter', sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#111827;border-width:12px 24px;display:inline-block;background:#111827;border-radius:100px;font-weight:600">Download
                                         for Mac</a>
