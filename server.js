@@ -413,14 +413,11 @@ app.post("/signup", async (req, res) => {
       }
     }
 
-    // Send welcome email with referral link
+    // Send welcome email via Resend dashboard template
     try {
-      const unsubscribeUrl = "https://referralbot-production.up.railway.app/unsubscribe?email=" + encodeURIComponent(email);
       const { data: emailData, error: emailError } = await resend.emails.send({
-        from: "Atomic Bot <welcome@atomicbot.ai>",
         to: email,
-        subject: "\u2705 +1 Atomic Bot! Here's how to get started",
-        html: buildEmailHtml(unsubscribeUrl),
+        template: { id: "untitled-template-bfg" },
       });
       if (emailError) {
         console.error("Resend email error:", emailError);
