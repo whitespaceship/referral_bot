@@ -238,10 +238,41 @@ function buildEmailHtml(unsubscribeUrl) {
                                   <td align="center" style="padding:0;Margin:0;padding-bottom:30px">
                                     <span class="es-button-border"
                                       style="border-style:solid;border-color:#111827;background:#111827;border-width:0px;display:inline-block;border-radius:100px;width:auto">
-                                      <a href="https://github.com/AtomicBot-ai/atomicbot/releases/download/v1.0.1/Atomic.Bot-1.0.1-arm64.dmg"
+                                      <a href="https://github.com/AtomicBot-ai/atomicbot/releases/download/v1.0.94/Atomic.Bot-1.0.94-arm64.dmg"
                                         class="es-button" target="_blank"
                                         style="mso-style-priority:100 !important;text-decoration:none;font-family:'Inter', sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#111827;border-width:12px 24px;display:inline-block;background:#111827;border-radius:100px;font-weight:600">Download
                                         for Mac</a>
+                                    </span>
+                                  </td>
+                                </tr>
+                              </table>
+
+                              <!-- Windows Version Block -->
+                              <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                                <tr>
+                                  <td align="center"
+                                    style="padding:0;Margin:0;padding-bottom:10px;padding-top:10px;border-top:1px solid #F3F4F6">
+                                    <h2
+                                      style="Margin:0;font-family:'Inter', sans-serif;font-size:20px;font-weight:600;color:#111827;padding-top:20px">
+                                      Available on Windows</h2>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="center"
+                                    style="padding:0;Margin:0;padding-bottom:20px;padding-left:20px;padding-right:20px">
+                                    <p
+                                      style="Margin:0;font-family:'Inter', sans-serif;font-size:15px;line-height:22px;color:#4B5563">
+                                      Open the installer and run locally on your Windows PC.</p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="center" style="padding:0;Margin:0;padding-bottom:30px">
+                                    <span class="es-button-border"
+                                      style="border-style:solid;border-color:#111827;background:#111827;border-width:0px;display:inline-block;border-radius:100px;width:auto">
+                                      <a href="https://github.com/AtomicBot-ai/atomicbot/releases/download/v1.0.94/Atomic-Bot-1.0.94-x64-win.exe"
+                                        class="es-button" target="_blank"
+                                        style="mso-style-priority:100 !important;text-decoration:none;font-family:'Inter', sans-serif;font-size:18px;color:#FFFFFF;border-style:solid;border-color:#111827;border-width:12px 24px;display:inline-block;background:#111827;border-radius:100px;font-weight:600">Download
+                                        for Windows</a>
                                     </span>
                                   </td>
                                 </tr>
@@ -262,7 +293,7 @@ function buildEmailHtml(unsubscribeUrl) {
                                     style="padding:0;Margin:0;padding-bottom:30px;padding-left:20px;padding-right:20px">
                                     <p
                                       style="Margin:0;font-family:'Inter', sans-serif;font-size:15px;line-height:22px;color:#4B5563">
-                                      One-click installers for iOS, Android, Windows and Linux coming soon.</p>
+                                      One-click installers for iOS, Android and Linux coming soon.</p>
                                   </td>
                                 </tr>
                               </table>
@@ -283,13 +314,6 @@ function buildEmailHtml(unsubscribeUrl) {
                                               src="https://cdn.prod.website-files.com/6981cca3fe2c3f562a2ad751/698af2542595cb0f85cbc958_x%20(2).png"
                                               height="24" style="display:block;border:0;height:24px;width:auto"></a>
                                         </td>
-                                        <td valign="top" align="center"
-                                          style="padding:0;Margin:0;padding-right:20px;padding-top:20px"><a
-                                            target="_blank" href="https://www.instagram.com/atomicbot.ai/"
-                                            style="text-decoration:none"><img title="Instagram"
-                                              src="https://cdn.prod.website-files.com/6981cca3fe2c3f562a2ad751/698af254f8c8b9bb51bb61fb_inst%20(2).png"
-                                              alt="Inst" height="24"
-                                              style="display:block;border:0;height:24px;width:auto"></a></td>
                                         <td align="center" valign="top" style="padding:0;Margin:0;padding-top:20px"><a
                                             href="https://discord.gg/2TXafRV69m" target="_blank"
                                             style="text-decoration:none"><img title="Discord"
