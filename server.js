@@ -364,79 +364,41 @@ function buildEmailHtml(unsubscribeUrl) {
 }
 
 app.post("/signup", async (req, res) => {
-  const { email, kid } = req.body;
+  const { email } = req.body;
 
   if (!email) {
     return res.status(400).json({ error: "email is required" });
   }
 
-  const campaignId = process.env.KOL_CAMPAIGN_ID;
-  const apiKey = process.env.KOL_API_KEY;
-
-  if (!campaignId || !apiKey) {
-    return res.status(500).json({ error: "Server misconfigured" });
-  }
-
-  const body = {
-    api_key: apiKey,
-    email,
-    ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress,
-    __source: "website",
-  };
-
-  if (kid) {
-    body.social_id = kid;
-  }
-
-  try {
-    const response = await fetch(
-      `https://api.kickofflabs.com/v2/${campaignId}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      }
-    );
-
-    const data = await response.json();
-
-    // Add contact to Resend audience
-    if (AUDIENCE_ID) {
-      try {
-        await resend.contacts.create({
-          email,
-          unsubscribed: false,
-          audienceId: AUDIENCE_ID,
-        });
-      } catch (contactErr) {
-        console.error("Resend contact error:", contactErr.message);
-      }
-    }
-
-    // Send welcome email via Resend dashboard template
+  // Add contact to Resend audience
+  if (AUDIENCE_ID) {
     try {
-      const { data: emailData, error: emailError } = await resend.emails.send({
-        to: email,
-        template: { id: "untitled-template-bfg" },
+      await resend.contacts.create({
+        email,
+        unsubscribed: false,
+        audienceId: AUDIENCE_ID,
       });
-      if (emailError) {
-        console.error("Resend email error:", emailError);
-      } else {
-        console.log("Email sent:", emailData);
-      }
-    } catch (emailErr) {
-      console.error("Resend email error:", emailErr);
+    } catch (contactErr) {
+      console.error("Resend contact error:", contactErr.message);
     }
-
-    res.json({
-      code: data.social_id,
-      url: data.social_url,
-      referrals: data.referrals,
-    });
-  } catch (err) {
-    console.error("KickoffLabs API error:", err.message);
-    res.status(502).json({ error: "Failed to reach KickoffLabs API" });
   }
+
+  // Send welcome email via Resend dashboard template
+  try {
+    const { data: emailData, error: emailError } = await resend.emails.send({
+      to: email,
+      template: { id: "untitled-template-bfg" },
+    });
+    if (emailError) {
+      console.error("Resend email error:", emailError);
+    } else {
+      console.log("Email sent:", emailData);
+    }
+  } catch (emailErr) {
+    console.error("Resend email error:", emailErr);
+  }
+
+  res.json({ code: null, url: null, referrals: 0 });
 });
 
 // Unsubscribe endpoint
